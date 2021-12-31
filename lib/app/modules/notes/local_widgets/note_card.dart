@@ -17,26 +17,30 @@ class NoteCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Get.toNamed(Routes.noteDetails, arguments: note),
+      onTap: () => Get.toNamed(
+        Routes.noteDetails,
+        arguments: {'note': note, 'editMode': true},
+      ),
       child: Container(
         decoration: BoxDecoration(
           color: note.color,
           borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+            color: Colors.grey.shade300,
+          ),
         ),
         margin: margin,
         padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            note.title != null
-                ? Text(
-                    note.title!,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                  )
-                : const SizedBox.shrink(),
+            Text(
+              note.title,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
             const SizedBox(height: 10),
             Text(
               note.description,
@@ -46,12 +50,9 @@ class NoteCard extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            Align(
+            const Align(
               alignment: Alignment.centerRight,
-              child: InkWell(
-                onTap: () {},
-                child: const Icon(EvaIcons.expandOutline),
-              ),
+              child: Icon(EvaIcons.expandOutline),
             ),
           ],
         ),

@@ -26,6 +26,7 @@ class NotesApp extends StatelessWidget {
     );
 
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: Routes.splash,
       getPages: AppPages.pages,
       theme: ThemeData(

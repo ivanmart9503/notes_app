@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:notes/app/core/theme/app_colors.dart';
 import 'package:notes/app/modules/home/home_controller.dart';
 import 'package:notes/app/modules/notes/notes_view.dart';
+import 'package:notes/app/routes/routes.dart';
 
 class HomePage extends StatelessWidget {
   final controller = Get.find<HomeController>();
@@ -26,7 +27,7 @@ class HomePage extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         child: const Icon(EvaIcons.plus),
-        onPressed: () {},
+        onPressed: () => Get.toNamed(Routes.noteDetails, arguments: {}),
       ),
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
