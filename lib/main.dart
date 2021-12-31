@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:get/get.dart';
 import 'package:notes/app/core/theme/app_colors.dart';
 import 'package:notes/app/initial_binding.dart';
@@ -9,7 +10,7 @@ import 'package:notes/app/routes/routes.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initialBinding();
-  runApp(const NotesApp());
+  runApp(Phoenix(child: const NotesApp()));
 }
 
 class NotesApp extends StatelessWidget {

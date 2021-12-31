@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:notes/app/core/theme/app_colors.dart';
 import 'package:notes/app/modules/home/home_controller.dart';
 import 'package:notes/app/modules/notes/notes_view.dart';
+import 'package:notes/app/modules/profile/profile_view.dart';
 import 'package:notes/app/routes/routes.dart';
 
 class HomePage extends StatelessWidget {
@@ -19,9 +20,7 @@ class HomePage extends StatelessWidget {
         onPageChanged: (index) => controller.indexPage.value = index,
         children: [
           NotesView(),
-          Center(
-            child: Text('Perfil'),
-          ),
+          ProfileView(),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:notes/app/core/theme/app_colors.dart';
 import 'package:notes/app/modules/notes/local_widgets/loading_more_notes.dart';
 import 'package:notes/app/modules/notes/local_widgets/note_card.dart';
+import 'package:notes/app/modules/notes/local_widgets/notes_header.dart';
 import 'package:notes/app/modules/notes/local_widgets/notes_loading.dart';
 import 'package:notes/app/modules/notes/notes_controller.dart';
 import 'package:notes/app/modules/profile/profile_controller.dart';
@@ -34,24 +35,7 @@ class NotesView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text(
-                  'Mis notas',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 26,
-                  ),
-                ),
-                const SizedBox(height: 2.5),
-                Text(
-                  profileCtrl.user.value.name,
-                  textAlign: TextAlign.left,
-                  style: const TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14,
-                  ),
-                ),
+                NotesHeader(),
                 Obx(() {
                   if (!notesCtrl.notesLoaded.value) {
                     return const NotesLoading();

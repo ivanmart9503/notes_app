@@ -17,13 +17,16 @@ class SplashController extends GetxController {
     super.onReady();
   }
 
-  void checkSession() {
+  void checkSession() async {
     final token = prefs.getString('token');
 
     if (token != null && token.isNotEmpty) {
-      final user = User.fromJson(jsonDecode(prefs.getString('user')!));
-      Get.find<ProfileController>().user(user);
-      Get.offAllNamed(Routes.home);
+      await Future.delayed(const Duration(seconds: 1), () {
+        final user = User.fromJson(jsonDecode(prefs.getString('user')!));
+        Get.find<ProfileController>().user(user);
+        Get.offAllNamed(Routes.home);
+      });
+
       return;
     }
 

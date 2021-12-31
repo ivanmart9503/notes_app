@@ -18,10 +18,17 @@ class SplashPage extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.2,
             ),
             const SizedBox(height: 20),
-            const Align(
-              child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation(
-                  AppColors.secondary,
+            Align(
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.25,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: LinearProgressIndicator(
+                    backgroundColor: AppColors.secondary.withOpacity(0.2),
+                    valueColor: const AlwaysStoppedAnimation(
+                      AppColors.secondary,
+                    ),
+                  ),
                 ),
               ),
             ),

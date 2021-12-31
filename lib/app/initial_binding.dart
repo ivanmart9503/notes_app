@@ -35,7 +35,10 @@ Future<void> initialBinding() async {
   );
 
   Get.put<ProfileController>(
-    ProfileController(api: Get.find<ApiProvider>()),
+    ProfileController(
+      api: Get.find<ApiProvider>(),
+      prefs: Get.find<SharedPreferences>(),
+    ),
     permanent: true,
   );
 }
