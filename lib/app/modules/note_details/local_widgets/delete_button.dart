@@ -17,12 +17,12 @@ class DeleteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() {
-      if (!show) {
-        return const SizedBox.shrink();
-      }
+    if (!show) {
+      return const SizedBox.shrink();
+    }
 
-      return IconButton(
+    return Obx(
+      () => IconButton(
         onPressed: () {
           if (!controller.deleteInProgress.value) {
             controller.deleteNote(noteId!);
@@ -38,7 +38,7 @@ class DeleteButton extends StatelessWidget {
                 ),
               )
             : const Icon(EvaIcons.trashOutline),
-      );
-    });
+      ),
+    );
   }
 }
